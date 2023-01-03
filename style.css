@@ -32,7 +32,7 @@ main {
     gap: 3vw;
 }
 
-button.rounded {
+.rounded {
     border-radius: 50%;
     width: 20vw;
     height: 20vw;
@@ -61,13 +61,11 @@ footer {
     font-size: 2vh;
 }
 
-button.rounded:hover {
+.rounded:hover {
     transform: scale(1.2) perspective(1px);
     cursor: pointer;
 }
 
-button.rounded:focus, h1:focus {
-    outline: none;
-  }
-
- 
+#add {
+    font-size: 10vw;
+}
