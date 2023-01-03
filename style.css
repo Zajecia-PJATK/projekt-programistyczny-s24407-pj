@@ -65,3 +65,9 @@ button.rounded:hover {
     transform: scale(1.2) perspective(1px);
     cursor: pointer;
 }
+
+button.rounded:focus, h1:focus {
+    outline: none;
+  }
+
+ 
