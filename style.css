@@ -1,28 +1,21 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 body {
     display: flex;
     margin: 0;
     padding: 0;
     width: 100vw;
-
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     justify-content: center;
     background-color: #90C8AF;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
     /*overflow: hidden;*/
 }
 
 header {
     background-color: #287369;
-   
     width: 100vw;
-    height: 10vw;
+    height: 15vh;
     text-align: center;
     -webkit-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
     -moz-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
@@ -35,7 +28,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 53vw;
+    height: 77vh;
     gap: 3vw;
 }
 
@@ -54,20 +47,21 @@ button.rounded {
 }
 
 h1 {
-    font-size: 3vw;
+    font-size: 5vh;
     text-decoration-line: underline;
     color: #F8EECC;
 }
 
 footer {
     background-color: #287369;
-    height: 5vw;
+    height: 8vh;
     width: 100vw;
-    color:#F8EECC;
+    color: #F8EECC;
     text-align: center;
+    font-size: 2vh;
 }
 
-button.rounded:hover{
+button.rounded:hover {
     transform: scale(1.2) perspective(1px);
-    cursor:pointer;
+    cursor: pointer;
 }
