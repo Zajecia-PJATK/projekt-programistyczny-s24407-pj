@@ -20,7 +20,7 @@ body {
 
 header {
     background-color: #287369;
-    color: #F8EECC;
+   
     width: 100vw;
     height: 10vw;
     text-align: center;
@@ -56,15 +56,18 @@ button.rounded {
 h1 {
     font-size: 3vw;
     text-decoration-line: underline;
-
+    color: #F8EECC;
 }
 
 footer {
     background-color: #287369;
     height: 5vw;
     width: 100vw;
+    color:#F8EECC;
+    text-align: center;
 }
 
 button.rounded:hover{
     transform: scale(1.2) perspective(1px);
+    cursor:pointer;
 }
