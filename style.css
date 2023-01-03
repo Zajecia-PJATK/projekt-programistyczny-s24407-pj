@@ -38,7 +38,7 @@ main {
     height: 20vw;
     background-color: #5CBC9D;
     color: #F8EECC;
-    font-size: 4vw;
+    font-size: 3vw;
     -webkit-box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
     -moz-box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
     box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
@@ -67,5 +67,13 @@ footer {
 }
 
 #add {
-    font-size: 10vw;
+    font-size: 9vw;
 }
+
+@media screen and (max-width: 500px) {
+    .rounded {
+        width: 30vw;
+        height: 30vw;
+        font-size: 5vw;
+    }
+  }
