@@ -1,0 +1,30 @@
+{
+  "name": "projekt-programistyczny-s24407-pj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zajecia-PJATK/projekt-programistyczny-s24407-pj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zajecia-PJATK/projekt-programistyczny-s24407-pj/issues"
+  },
+  "homepage": "https://github.com/Zajecia-PJATK/projekt-programistyczny-s24407-pj#readme",
+  "dependencies": {
+    "mongodb": "^4.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1"
+  }
+}
