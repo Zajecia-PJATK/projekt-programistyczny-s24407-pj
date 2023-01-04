@@ -1,5 +1,6 @@
-const mongoClient = require('mongodb').MongoClient
+const button = document.getElementById('add')?.addEventListener("click", addQuiz);
+const main = document.getElementsByTagName('main');
 
-const url = 'mongodb+srv://admin:heSADctvkcbVJJXd@database.czdcboz.mongodb.net/?retryWrites=true&w=majority'
-const dbname = 'quizz-app'
-
+function addQuiz(){
+    
+}
