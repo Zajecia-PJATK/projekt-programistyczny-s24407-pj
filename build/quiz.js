@@ -1,11 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Quizz = void 0;
-class Quizz {
-    constructor(title, type) {
-        this.title = title;
-        this.type = type;
-        this.rank = [];
+exports.Quiz = void 0;
+class Quiz {
+    constructor(_title) {
+        this._title = _title;
+        this._rank = [];
+    }
+    get rank() {
+        return this._rank;
+    }
+    set rank(value) {
+        this._rank.push(...value);
+        this._rank.sort();
     }
 }
-exports.Quizz = Quizz;
+exports.Quiz = Quiz;

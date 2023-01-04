@@ -1,12 +1,18 @@
-import {Type} from "./type";
-export class Quizz{
-    title: string;
-    rank: string[];
-    type: Type;
-    
-    constructor(title: string, type: Type){
-        this.title = title;
-        this.type = type
-        this.rank = [];
+export class Quiz{
+    private _title: string;
+    private _rank: Array<[string, number]>;
+   
+    constructor(_title: string){
+        this._title = _title;    
+        this._rank = [];
     }
+
+    get rank(): Array<[string, number]>{
+        return this._rank;
+    }
+
+    set rank(value: Array<[string, number]>) {
+        this._rank.push(...value);
+        this._rank.sort();
+      }
 }

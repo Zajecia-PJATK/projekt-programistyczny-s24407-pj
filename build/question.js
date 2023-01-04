@@ -1,5 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const quiz_1 = require("./quiz");
-class Question extends quiz_1.Quizz {
+exports.Question = void 0;
+class Question {
+    constructor(question, type, answers) {
+        this.type = type;
+        this.question = question;
+        this.answers = answers;
+    }
 }
+exports.Question = Question;
