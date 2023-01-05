@@ -1,6 +1,5 @@
-import { title } from "process";
-import { Quiz } from "./quiz";
 import {Type} from "./type";
+
 export class Question{ 
     private type: Type;
     private question: string;

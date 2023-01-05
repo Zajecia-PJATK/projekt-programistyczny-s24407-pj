@@ -1,15 +1,14 @@
-import * as http from 'http';
-import { Server, IncomingMessage, ServerResponse } from 'http';
+import express from "express"
+import cors from "cors"
+//import _app from "./api/app.route"
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express();
 
-const server: Server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+app.use(cors())
+app.use(express.json())
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+//app.use("/api/app", _app)
+app.use("*",(req, res)=>
+res.status(404).json({error: "not found"}));
+
+export default app;
