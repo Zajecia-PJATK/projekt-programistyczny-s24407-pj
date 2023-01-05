@@ -5,6 +5,7 @@ export class Quiz{
     constructor(_title: string){
         this._title = _title;    
         this._rank = [];
+        console.log("Hi");
     }
 
     get rank(): Array<[string, number]>{

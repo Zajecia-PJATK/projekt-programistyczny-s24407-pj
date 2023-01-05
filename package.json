@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "build": "rimraf ./build && tsc",
     "start:dev": "npx nodemon"
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/Zajecia-PJATK/projekt-programistyczny-s24407-pj#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "mongodb": "^4.13.0"
   },
   "devDependencies": {

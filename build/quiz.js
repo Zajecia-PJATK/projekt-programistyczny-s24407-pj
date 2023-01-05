@@ -5,6 +5,7 @@ class Quiz {
     constructor(_title) {
         this._title = _title;
         this._rank = [];
+        console.log("Hi");
     }
     get rank() {
         return this._rank;
