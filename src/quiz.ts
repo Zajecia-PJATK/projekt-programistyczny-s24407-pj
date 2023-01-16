@@ -1,6 +1,7 @@
 import { Question } from "./question";
 import { Type } from "./type";
-class Quiz {
+
+class Quiz {   
     private _title: string;
     private _rank: Array<[string, number]>;
 
@@ -24,7 +25,7 @@ const button = document.getElementById('add')?.addEventListener("click", addQuiz
 const main = document.getElementById('main')!;
 
 function addQuiz() {
-    main.innerHTML = ' ';
+    main.innerHTML = '<div></div>';
     //Enter title of quiz
     const quiz = new Quiz("Football");
 
