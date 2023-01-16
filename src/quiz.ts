@@ -5,7 +5,7 @@ import { Settings } from "./settings";
 export class Quiz {
     private _title: string;
     private _rank: Array<[string, number]>;
-    private questionStorage: Array<[Question]>;
+    private questionStorage: Array<Question>;
     private settings: Settings = {
         negativePoints: false,
         time: 0,
@@ -36,8 +36,8 @@ export class Quiz {
         this._rank.sort();
     }
 
-    addQuestion(){
-        
+    addQuestion(question:Question){
+        this.questionStorage.push(question);
     }
 
 }
