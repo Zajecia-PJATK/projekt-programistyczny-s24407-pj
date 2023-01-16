@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/quiz.ts',
+    entry: './src/app.ts',
     module: {
         rules: [
             {

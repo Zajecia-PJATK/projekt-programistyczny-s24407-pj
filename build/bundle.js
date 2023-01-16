@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/question.ts":
-/*!*************************!*\
-  !*** ./src/question.ts ***!
-  \*************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ "./src/app.ts":
+/*!********************!*\
+  !*** ./src/app.ts ***!
+  \********************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.Question = void 0;\r\nclass Question {\r\n    constructor(question, type, answers) {\r\n        this.type = type;\r\n        this.question = question;\r\n        this.answers = answers;\r\n    }\r\n}\r\nexports.Question = Question;\r\n\n\n//# sourceURL=webpack:///./src/question.ts?");
+eval("\r\nvar _a;\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst quiz_1 = __webpack_require__(/*! ./quiz */ \"./src/quiz.ts\");\r\nconst button = (_a = document.getElementById('add')) === null || _a === void 0 ? void 0 : _a.addEventListener(\"click\", addQuiz);\r\nconst main = document.getElementById('main');\r\nlet quizStorage = [];\r\n//render quizzes\r\nshowQuizzes();\r\n//Shows quizzes to play on main page\r\nfunction showQuizzes() {\r\n    //TBD\r\n}\r\n//Add quiz to storage trough quiz creator\r\nfunction addQuiz() {\r\n    var _a;\r\n    //Enter title of quiz\r\n    main.innerHTML = `\r\n    <form>\r\n        <label for=\"title\">Title:</label>\r\n        <input type=\"text\" id=\"title\" name=\"title\" required>\r\n        <input type=\"submit\">\r\n    </form>`;\r\n    //After submit title is equal to typed title \r\n    const submit = (_a = document.querySelector(\"input[type='submit']\")) === null || _a === void 0 ? void 0 : _a.addEventListener(\"click\", () => {\r\n        const title = document.querySelector('#title').value;\r\n        new quiz_1.Quiz(title);\r\n    });\r\n    //Enter settings\r\n    //Enter question\r\n}\r\nfunction quizCreator() {\r\n}\r\n\n\n//# sourceURL=webpack:///./src/app.ts?");
 
 /***/ }),
 
@@ -24,9 +24,9 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
 /*!*********************!*\
   !*** ./src/quiz.ts ***!
   \*********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
-eval("\r\nvar _a;\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nconst question_1 = __webpack_require__(/*! ./question */ \"./src/question.ts\");\r\nclass Quiz {\r\n    constructor(_title) {\r\n        this._title = _title;\r\n        this._rank = [];\r\n        console.log(\"Hi\");\r\n    }\r\n    get rank() {\r\n        return this._rank;\r\n    }\r\n    set rank(value) {\r\n        this._rank.push(...value);\r\n        this._rank.sort();\r\n    }\r\n}\r\nconst button = (_a = document.getElementById('add')) === null || _a === void 0 ? void 0 : _a.addEventListener(\"click\", addQuiz);\r\nconst main = document.getElementById('main');\r\nfunction addQuiz() {\r\n    main.innerHTML = 'sdda';\r\n    //Enter title of quiz\r\n    const quiz = new Quiz(\"Football\");\r\n    //Enter settings\r\n    //Enter question\r\n    const question = new question_1.Question('Who won World cup 2022?', 1 /* Type.ONE */, [\r\n        ['France!', true],\r\n        ['Argentina', false],\r\n        ['Poland', false],\r\n        ['Germany', false]\r\n    ]);\r\n    console.log(question);\r\n}\r\n\n\n//# sourceURL=webpack:///./src/quiz.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.Quiz = void 0;\r\nclass Quiz {\r\n    constructor(_title) {\r\n        this._title = _title;\r\n        this._rank = [];\r\n        this.questionStorage = [];\r\n    }\r\n    get rank() {\r\n        return this._rank;\r\n    }\r\n    set rank(value) {\r\n        this._rank.push(...value);\r\n        this._rank.sort();\r\n    }\r\n    addQuestion(type) {\r\n    }\r\n}\r\nexports.Quiz = Quiz;\r\n\n\n//# sourceURL=webpack:///./src/quiz.ts?");
 
 /***/ })
 
@@ -61,7 +61,7 @@ eval("\r\nvar _a;\r\nObject.defineProperty(exports, \"__esModule\", ({ value: tr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/quiz.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/app.ts");
 /******/ 	
 /******/ })()
 ;

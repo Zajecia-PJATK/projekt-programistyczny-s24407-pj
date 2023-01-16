@@ -74,9 +74,10 @@ footer {
     .rounded {
         width: 30vw;
         height: 30vw;
-        font-size: 5vw;     
+        font-size: 5vw;
     }
-    main{
+
+    main {
         gap: 8vw;
     }
-  }
+}

@@ -1,14 +1,16 @@
 import { Question } from "./question";
 import { Type } from "./type";
 
-class Quiz {   
+export class Quiz {
     private _title: string;
     private _rank: Array<[string, number]>;
+    private questionStorage: Array<[Question]>;
+
 
     constructor(_title: string) {
         this._title = _title;
         this._rank = [];
-        console.log("Hi");
+        this.questionStorage = [];
     }
 
     get rank(): Array<[string, number]> {
@@ -19,25 +21,8 @@ class Quiz {
         this._rank.push(...value);
         this._rank.sort();
     }
-}
 
-const button = document.getElementById('add')?.addEventListener("click", addQuiz);
-const main = document.getElementById('main')!;
+    addQuestion(type: Type) {
 
-function addQuiz() {
-    main.innerHTML = '<div></div>';
-    //Enter title of quiz
-    const quiz = new Quiz("Football");
-
-    //Enter settings
-
-    //Enter question
-    const question = new Question('Who won World cup 2022?', Type.ONE,
-        [
-            ['France!', true],
-            ['Argentina', false],
-            ['Poland', false],
-            ['Germany', false]
-        ]);
-    console.log(question);
+    }
 }
