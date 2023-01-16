@@ -2,10 +2,7 @@ import { addQuestion } from "./addQuestion";
 import { main } from "./app";
 import { askForSettings } from "./askForSettings";
 import { askForTitle } from "./askForTitle";
-import { Question } from "./question";
 import { Quiz } from "./quiz";
-import { Settings } from "./settings";
-import { Type } from "./type";
 
 export async function quizCreator() {
   //create new quiz
@@ -32,8 +29,3 @@ export async function quizCreator() {
   main.appendChild(oneMoreButton);
   while (true) {}
 }
-
-
-
-
-

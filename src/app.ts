@@ -1,6 +1,4 @@
-import { Question } from "./question";
 import { Quiz } from "./quiz";
-import { Type } from "./type";
 import { quizCreator } from "./quizCreator";
 
 export let main = document.querySelector("main")!;
