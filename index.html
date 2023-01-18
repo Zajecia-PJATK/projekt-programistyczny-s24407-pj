@@ -15,28 +15,22 @@
   <body>
     <header>
       <a href="#">
-        <h1>QuizzApp</h1>
+        <h1>TicTacToe</h1>
       </a>
     </header>
     <main id="main">
-      <!--Testing-->
-      <form id="question-type" class="fade-in">
-        <fieldset>
-          <legend>Create question</legend>
-          <label for="type">Type of question</label>
-          <select id="type" name type>
-            <option value="One true">One true</option>
-            <option value="Many true">Many true</option>
-            <option value="Short answer">Short answer</option>
-            <option value="True/false">True/false</option>
-            <option value="Fill the word">Fill the word</option>
-            <option value="Choose from list">Choose from list</option>
-            <option value="Match">Match</option>
-            <option value="Sort">Sort</option></select
-          ><br />
-        </fieldset>
+      <form>
+        <legend><h2>Name</h2></legend>
+        <label
+          >First player<br />X
+          <input id="first-player" type="text" required /></label
+        ><br /><br />
+        <label
+          >Second player<br />O
+          <input id="second-player" type="text" required /></label
+        ><br /><br />
+        <button type="submit"><i class="bi bi-check-lg"></i></button>
       </form>
-      <!---->
     </main>
     <footer>
       <p>&copy; <i>2023 Michał Flisikowski</i></p>

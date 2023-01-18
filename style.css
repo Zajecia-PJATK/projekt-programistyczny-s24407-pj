@@ -31,19 +31,7 @@ main {
   gap: 3vw;
 }
 
-.rounded {
-  border-radius: 50%;
-  width: 20vw;
-  height: 20vw;
-  background-color: #5cbc9d;
-  color: #f8eecc;
-  font-size: 3vw;
-  -webkit-box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
-  -moz-box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
-  box-shadow: -8px 9px 27px -5px rgba(40, 115, 105, 1);
-  border: none;
-  transition: all 0.5s ease;
-}
+
 
 h1 {
   font-size: 5vh;
@@ -60,14 +48,9 @@ footer {
   font-size: 2vh;
 }
 
-.rounded:hover {
-  transform: scale(1.2) perspective(1px);
-  cursor: pointer;
-}
 
-#add {
-  font-size: 9vw;
-}
+
+
 
 @media screen and (max-width: 500px) {
   .rounded {
@@ -93,3 +76,42 @@ footer {
     opacity: 1;
   }
 }
+
+form{
+  background-color: #287369;
+  color: #f8eecc;
+  height: 30vh;
+  width: 25vw;
+  text-align: center;
+  -webkit-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
+  -moz-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
+  box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
+}
+
+form button{
+  background-color: #f8eecc;
+  color: #287369;
+  border: none;
+  width: 4vw;
+  height: 4vh;
+  font-size: 1rem;
+  border-radius: 25px;
+  
+}
+
+form button:hover{
+  width:5vw;
+  height: 5vh;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+#board{
+  width: 160px;
+}
+
+#board button{
+  width: 50px;
+  height: 50px;
+}
+
