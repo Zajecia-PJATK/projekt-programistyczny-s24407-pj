@@ -116,3 +116,18 @@ form button:hover{
   height: 50px;
 }
 
+.tile{
+  background-color: #287369;
+  color: #f8eecc;
+  cursor: pointer;
+}
+
+input{
+  background-color: #90c8af;
+  border: none;
+}
+
+input:focus{
+  border-radius: 15px;
+  
+}
