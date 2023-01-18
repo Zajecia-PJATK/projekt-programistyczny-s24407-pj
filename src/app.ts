@@ -1,32 +1,32 @@
+import { Question } from "./question";
 import { Quiz } from "./quiz";
-import { quizCreator } from "./quizCreator";
+import { showQuizzes } from "./showQuizzes";
+import { Type } from "./type";
 
 export let main = document.querySelector("main")!;
-let quizStorage: Array<[Quiz]> = [];
+
+//create one test quiz
+const quiz = new Quiz("Football", {
+    //settings
+  negativePoints: false,
+  prevQuestion: false,
+  randomAnswers: false,
+  randomQuestions: false,
+  time: 0,
+});
+
+//add question to quiz
+quiz.addQuestion(new Question(
+    "Who won World Cup 2022?",
+    Type.ONE,
+    [
+        ["Poland",false],
+        ["France",true],
+        ["Germany",false],
+        ["Qatar",false],
+    ]
+));
+localStorage.setItem(quiz.name,JSON.stringify(quiz));
 
 //render quizzes
 showQuizzes();
-
-//Shows quizzes to play on main page from quizStorage + add button
-function showQuizzes() {
-  //remove all child elements of main
-  while (main.firstChild) {
-    main.removeChild(main.firstChild);
-  }
-
-  //create a <button> element
-  let button = document.createElement("button");
-
-  //add class and id to button
-  button.setAttribute("class", "rounded fade-in");
-  button.setAttribute("id", "add");
-
-  //add text to the button
-  button.textContent = "+";
-
-  //append the button to the main element
-  main.appendChild(button);
-  
-  document.querySelector("h1")?.addEventListener("click", showQuizzes);
-  document.querySelector("#add")?.addEventListener("click", quizCreator);
-}
