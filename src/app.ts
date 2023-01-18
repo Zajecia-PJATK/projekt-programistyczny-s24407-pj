@@ -1,5 +1,6 @@
 const main: HTMLElement = document.querySelector("main")!;
 const form: HTMLFormElement = document.querySelector("form")!;
+const title: HTMLHeadingElement = document.querySelector("h1")!.addEventListener("click",);
 let rank: [name: string, winCount: number];
 const board = `<div id="board">
     <button id="first" class="tile"></button>
@@ -39,7 +40,11 @@ function startGame(firstPlayer: string, secondPlayer: string) {
     tile.addEventListener("click", () => {
       tile.setAttribute("disabled", "");
       tile.textContent = currentPlayer;
-      currentPlayer = "O";
+      if (currentPlayer == "X") {
+        currentPlayer = "O";
+      } else {
+        currentPlayer = "X";
+      }
     });
   });
 }

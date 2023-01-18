@@ -107,7 +107,8 @@ form button:hover{
 }
 
 #board{
-  width: 160px;
+  width: 180px;
+  flex-wrap: wrap;
 }
 
 #board button{
