@@ -23,14 +23,16 @@ export function askForTitle(): Promise<string> {
     titleInput.setAttribute("name", "title");
     titleInput.setAttribute("required", "");
 
-    //create a submit <input> element
-    let submitInput = document.createElement("input");
-    submitInput.setAttribute("type", "submit");
-
+    //create a submit button element
+    let submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.setAttribute("name", "submit");
+    submitButton.textContent = "Submit"
+    
     //append the elements to the form
     form.appendChild(label);
     form.appendChild(titleInput);
-    form.appendChild(submitInput);
+    form.appendChild(submitButton);
 
     //append the form to the main element
     main.appendChild(form);
@@ -41,7 +43,7 @@ export function askForTitle(): Promise<string> {
       event.preventDefault();
       const title = document.querySelector<HTMLInputElement>("#title")!.value;
       if (!title) {
-        reject("Title is required.");
+        reject(console.log("No title"));
       } else {
         resolve(title);
       }

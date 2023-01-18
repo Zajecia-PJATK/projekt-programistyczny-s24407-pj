@@ -96,7 +96,6 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
     select.addEventListener(
       "change",
       () => {
-        
         while (main.firstChild) {
           main.removeChild(main.firstChild);
         }
@@ -124,17 +123,18 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
             newInput.setAttribute("value", "question");
             newInput.setAttribute("required", "");
 
-            //create a submit <input> element
-            let submitInput = document.createElement("input");
-            submitInput.setAttribute("type", "submit");
-
+            //create a submit button element
+            let submitButton = document.createElement("input");
+            submitButton.setAttribute("type", "submit");
+            submitButton.textContent = "Submit"
+            
             //append the Label,Input submit elements to the fieldset element
             fieldset.appendChild(label);
             fieldset.appendChild(newInput);
-            fieldset.appendChild(submitInput);
-            console.log("Sdd");
-         submitInput.addEventListener("click",  function(e)  {
-                e.preventDefault();
+            fieldset.appendChild(submitButton);
+            
+            submitButton.addEventListener("click", (event) =>{
+              event.preventDefault();
               const question: string = newInput.value;
               const answers: Array<[string, boolean]> = [
                 ["1", true],
@@ -142,10 +142,10 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
                 ["3", false],
                 ["4", false],
               ];
-              
+
               resolve(new Question(question, Type.ONE, answers));
             });
-            
+
             break;
           case "Many true":
             break;

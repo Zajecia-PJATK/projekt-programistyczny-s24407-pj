@@ -78,9 +78,12 @@ export function askForSettings(): Promise<Settings> {
     labelOption5.setAttribute("for", "option5");
     labelOption5.textContent = "Disable previous questions";
 
-    //create a submit input element
-    let submitInput = document.createElement("input");
-    submitInput.setAttribute("type", "submit");
+    //create a submit button element
+    let submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.setAttribute("name", "submit");
+    submitButton.textContent = "Submit"
+    
     //append the elements to the fieldset
     fieldset.appendChild(legend);
     fieldset.appendChild(option1);
@@ -97,7 +100,7 @@ export function askForSettings(): Promise<Settings> {
     fieldset.appendChild(document.createElement("br"));
     fieldset.appendChild(option5);
     fieldset.appendChild(labelOption5);
-    fieldset.appendChild(submitInput);
+    fieldset.appendChild(submitButton);
 
     //append the fieldset to the form
     form.appendChild(fieldset);
@@ -105,20 +108,21 @@ export function askForSettings(): Promise<Settings> {
     //append the form to the main element
     main.appendChild(form);
     //set settings
-    const submit = document
-      .querySelector("input[type='submit']")
-      ?.addEventListener("click", () => {
+     form.addEventListener("submit", (event) => {
+        event.preventDefault;
         resolve( {
           negativePoints:
-            document.querySelector<HTMLInputElement>("#option1")?.checked,
+            document.querySelector<HTMLInputElement>("#option1")!.checked,
           time: +document.querySelector<HTMLInputElement>("#option2")!.value,
           randomQuestions:
-            document.querySelector<HTMLInputElement>("#option3")?.checked,
+            document.querySelector<HTMLInputElement>("#option3")!.checked,
           randomAnswers:
-            document.querySelector<HTMLInputElement>("#option4")?.checked,
+            document.querySelector<HTMLInputElement>("#option4")!.checked,
           prevQuestion:
-            document.querySelector<HTMLInputElement>("#option5")?.checked,
+            document.querySelector<HTMLInputElement>("#option5")!.checked,
         });
+        
       });
+      reject(console.log("No settings"));
   });
 }
