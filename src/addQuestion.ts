@@ -33,6 +33,10 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
     select.setAttribute("name", "type");
 
     //create the options for the select element
+    let defaultOption = document.createElement("option");
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+
     let option1 = document.createElement("option");
     option1.setAttribute("value", "One true");
     option1.textContent = "One true";
@@ -65,6 +69,7 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
     option8.setAttribute("value", "Sort");
     option8.textContent = "Sort";
 
+    select.appendChild(defaultOption);
     select.appendChild(option1);
     select.appendChild(option2);
     select.appendChild(option3);
@@ -88,45 +93,81 @@ export function addQuestion(quiz: Quiz): Promise<Question> {
 
     //ask to fill question variables
     select = document.querySelector("#type")!;
-    select.addEventListener("change", () => {
-      switch (select.value) {
-        case "One true":
-          //create a <label> element
-          let newLabel = document.createElement("label");
+    select.addEventListener(
+      "change",
+      () => {
+        
+        while (main.firstChild) {
+          main.removeChild(main.firstChild);
+        }
+        //create a <form> element
+        let form = document.createElement("form");
+        form.setAttribute("class", "fade-in");
+        form.setAttribute("id", "question-new");
 
-          //create a <input> element
-          let newInput = document.createElement("input");
-          newInput.setAttribute("type", "text");
+        //create a <fieldset> element
+        let fieldset = document.createElement("fieldset");
 
-          //append the newLabel and newInput elements to the select element
-          select.appendChild(newLabel);
-          select.appendChild(newInput);
+        //create a <legend> element
+        let legend = document.createElement("legend");
+        legend.textContent = "Create question";
 
-          const question: string = "?";
-          const answers: Array<[string, boolean]> = [
-            ["1", true],
-            ["2", false],
-            ["3", false],
-            ["4", false],
-          ];
-          resolve(new Question(question, Type.ONE, answers));
-        case "Many true":
+        switch (select.options[select.selectedIndex].value) {
+          case "One true":
+            //create a <label> element for question type
+            let label = document.createElement("label");
+            label.textContent = "Question:";
 
-        case "Short answer":
+            //create a <input> element
+            let newInput = document.createElement("input");
+            newInput.setAttribute("type", "text");
+            newInput.setAttribute("value", "question");
+            newInput.setAttribute("required", "");
 
-        case "True/false":
+            //create a submit <input> element
+            let submitInput = document.createElement("input");
+            submitInput.setAttribute("type", "submit");
 
-        case "Fill the word":
-
-        case "Choose from list":
-
-        case "Match":
-
-        case "Sort":
-
-        default:
-          reject(console.log("No such type"));
-      }
-    });
+            //append the Label,Input submit elements to the fieldset element
+            fieldset.appendChild(label);
+            fieldset.appendChild(newInput);
+            fieldset.appendChild(submitInput);
+            console.log("Sdd");
+         submitInput.addEventListener("click",  function(e)  {
+                e.preventDefault();
+              const question: string = newInput.value;
+              const answers: Array<[string, boolean]> = [
+                ["1", true],
+                ["2", false],
+                ["3", false],
+                ["4", false],
+              ];
+              
+              resolve(new Question(question, Type.ONE, answers));
+            });
+            
+            break;
+          case "Many true":
+            break;
+          case "Short answer":
+            break;
+          case "True/false":
+            console.log("adasd");
+            break;
+          case "Fill the word":
+            break;
+          case "Choose from list":
+            break;
+          case "Match":
+            break;
+          case "Sort":
+            break;
+          default:
+            reject(console.log("No such type"));
+            break;
+        }
+      },
+      { once: true }
+    );
   });
 }

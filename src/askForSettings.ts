@@ -108,7 +108,7 @@ export function askForSettings(): Promise<Settings> {
     const submit = document
       .querySelector("input[type='submit']")
       ?.addEventListener("click", () => {
-        return {
+        resolve( {
           negativePoints:
             document.querySelector<HTMLInputElement>("#option1")?.checked,
           time: +document.querySelector<HTMLInputElement>("#option2")!.value,
@@ -118,7 +118,7 @@ export function askForSettings(): Promise<Settings> {
             document.querySelector<HTMLInputElement>("#option4")?.checked,
           prevQuestion:
             document.querySelector<HTMLInputElement>("#option5")?.checked,
-        };
+        });
       });
   });
 }

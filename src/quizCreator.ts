@@ -27,5 +27,5 @@ export async function quizCreator() {
   main.appendChild(p);
   main.appendChild(endButton);
   main.appendChild(oneMoreButton);
-  while (true) {}
+
 }

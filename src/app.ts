@@ -26,6 +26,7 @@ function showQuizzes() {
 
   //append the button to the main element
   main.appendChild(button);
+  
   document.querySelector("h1")?.addEventListener("click", showQuizzes);
   document.querySelector("#add")?.addEventListener("click", quizCreator);
 }
