@@ -28,10 +28,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 77vh;
-  gap: 3vw;
 }
-
-
 
 h1 {
   font-size: 5vh;
@@ -47,10 +44,6 @@ footer {
   text-align: center;
   font-size: 2vh;
 }
-
-
-
-
 
 @media screen and (max-width: 500px) {
   .rounded {
@@ -77,62 +70,81 @@ footer {
   }
 }
 
-form{
+form {
   background-color: #287369;
   color: #f8eecc;
-  height: 30vh;
-  width: 25vw;
+  height: 320px;
+  width: 230px;
   text-align: center;
   -webkit-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
   -moz-box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
   box-shadow: 0px 9px 22px -12px rgba(40, 115, 105, 1);
 }
 
-form button{
+form button {
   background-color: #f8eecc;
   color: #287369;
   border: none;
-  width: 4vw;
-  height: 4vh;
+  width: 35px;
+  height: 35px;
   font-size: 1rem;
   border-radius: 25px;
-  
+  margin-top: 10px;
 }
 
-form button:hover{
-  width:5vw;
-  height: 5vh;
-  font-size: 1.5rem;
+form button:hover {
+  
+
+  scale: 1.2;
   transition: all 0.3s ease;
 }
 
-#board{
-  width: 180px;
+#board {
+  width: 320px;
   flex-wrap: wrap;
 }
 
-#board button{
-  width: 50px;
-  height: 50px;
-}
-
-.tile{
+.tile {
+  width: 100px;
+  height: 100px;
   background-color: #287369;
   color: #f8eecc;
   cursor: pointer;
   border: none;
 }
 
-input{
+input {
   background-color: #90c8af;
   border: none;
+  text-align: center;
+  height: 25px;
+  color: #287369;
+  font-weight: bold;
+  margin-top: 5px;
+  width: 150px;
 }
 
-input:focus{
+input:focus {
   border-radius: 15px;
-  
+  transition: all 0.3s ease;
+  scale: 1.1;
 }
 
-button:disabled{
+button:disabled {
   cursor: not-allowed;
+}
+
+#undo {
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #f8eecc;
+  color: #287369;
+  border: none;
+  width: 35px;
+  height: 35px;
+}
+
+#undo:hover{
+  scale: 1.2;
+  transition: all 0.3s ease;
 }

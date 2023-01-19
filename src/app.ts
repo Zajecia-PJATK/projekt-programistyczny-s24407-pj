@@ -3,16 +3,18 @@ const form: HTMLFormElement = document.querySelector("form")!;
 // const title: HTMLHeadingElement = document.querySelector("h1")!;
 // title.addEventListener("click",askForNames);
 let rank: [{ name: string; winCount: number }];
-const board = `<div id="board">
-    <button id="first" class="tile"></button>
-    <button id="second" class="tile"></button>
-    <button id="third" class="tile"></button>
-    <button id="fourth" class="tile"></button>
-    <button id="fifth" class="tile"></button>
-    <button id="sixth" class="tile"></button>
-    <button id="seventh" class="tile"></button>
-    <button id="eighth" class="tile"></button>
-    <button id="nineth" class="tile"></button>
+let lastTile: HTMLButtonElement;
+const board = `<div id="board" class="fade-in">
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button class="tile"></button>
+    <button id="undo"><i class="bi bi-arrow-counterclockwise"></i></button>
 </div>`;
 
 askForNames();
@@ -29,6 +31,7 @@ async function askForNames(): Promise<void> {
     const secondPlayer = inputSecond.value;
     console.log("Names added");
     const game: string = await startGame();
+    //add winner to rank
     if (game === "draw") {
     } else {
       let winner = { name: game, winCount: 1 };
@@ -57,10 +60,16 @@ async function startGame(): Promise<string> {
       ".tile"
     ) as NodeListOf<HTMLButtonElement>;
     const tilesArray = Array.from(tiles);
+    //Undo function
+    document.querySelector("#undo")?.addEventListener("click", () => {
+      lastTile.textContent = "";
+      lastTile.removeAttribute("disabled");
+    });
     tiles.forEach((tile) => {
       //when clicked set to disabled
       tile.addEventListener("click", () => {
         tile.setAttribute("disabled", "");
+        lastTile = tile;
         //mark tile
         tile.textContent = currentPlayer;
         //check if someone won
