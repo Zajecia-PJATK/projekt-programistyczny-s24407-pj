@@ -120,6 +120,7 @@ form button:hover{
   background-color: #287369;
   color: #f8eecc;
   cursor: pointer;
+  border: none;
 }
 
 input{
@@ -130,4 +131,8 @@ input{
 input:focus{
   border-radius: 15px;
   
+}
+
+button:disabled{
+  cursor: not-allowed;
 }
