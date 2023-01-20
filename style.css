@@ -101,7 +101,12 @@ form button:hover {
 
 #board {
   width: 320px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
 }
 
 .tile {
@@ -111,6 +116,7 @@ form button:hover {
   color: #f8eecc;
   cursor: pointer;
   border: none;
+  margin: 5px;
 }
 
 input {
@@ -147,4 +153,9 @@ button:disabled {
 #undo:hover{
   scale: 1.2;
   transition: all 0.3s ease;
+}
+
+.tile:hover:enabled{
+  background-color: #f8eecc;
+  color: #287369;
 }
