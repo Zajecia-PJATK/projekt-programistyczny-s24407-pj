@@ -109,7 +109,7 @@ form button:hover {
   align-content: center;
 }
 
-.tile {
+#board button {
   width: 100px;
   height: 100px;
   background-color: #287369;
@@ -136,11 +136,12 @@ input:focus {
   scale: 1.1;
 }
 
-button:disabled {
+#board button:disabled {
   cursor: not-allowed;
+
 }
 
-#undo {
+#board #undo {
   margin-top: 20px;
   border-radius: 15px;
   background-color: #f8eecc;
@@ -155,7 +156,33 @@ button:disabled {
   transition: all 0.3s ease;
 }
 
-.tile:hover:enabled{
+#board button:hover:enabled{
   background-color: #f8eecc;
   color: #287369;
+  transition: all 0.23s ease;
+}
+
+#play-again{
+  width: 100px;
+  height: 80px;
+  border-radius: 0 25px 25px 0;
+  background-color: #f8eecc;
+  color: #287369;
+  border: none;
+  font-size: larger;
+}
+
+#play-again:hover{
+  scale: 1.1;
+  transition: all 0.3s ease;
+}
+
+.win-msg{
+  background-color: #287369;
+  color: #f8eecc;
+  border-radius: 25px 0 0 25px;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  padding-top: 20px;
 }
