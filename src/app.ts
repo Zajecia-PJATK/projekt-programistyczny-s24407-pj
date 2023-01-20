@@ -64,6 +64,11 @@ async function startGame(): Promise<string> {
     document.querySelector("#undo")?.addEventListener("click", () => {
       lastTile.textContent = "";
       lastTile.removeAttribute("disabled");
+      if (currentPlayer == "X") {
+        currentPlayer = "O";
+      } else {
+        currentPlayer = "X";
+      }
     });
     tiles.forEach((tile) => {
       //when clicked set to disabled
