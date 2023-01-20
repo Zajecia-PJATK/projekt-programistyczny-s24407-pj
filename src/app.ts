@@ -1,7 +1,6 @@
 const main: HTMLElement = document.querySelector("main")!;
 const form: HTMLFormElement = document.querySelector("form")!;
- const title: HTMLHeadingElement = document.querySelector("h1")!;
- title.addEventListener("click",restart);
+
 let rank: [{ name: string; winCount: number }];
 let lastTile: HTMLButtonElement;
 let firstPlayer: string;
@@ -21,8 +20,8 @@ const board = `<div id="board" class="fade-in">
 
 askForNames();
 
-  //add winner to rank
-function updateRank(name:string):void{
+//add winner to rank
+function updateRank(name: string): void {
   if (name === "draw") {
   } else {
     if (name == "X") {
@@ -51,79 +50,76 @@ async function askForNames(): Promise<void> {
     firstPlayer = inputFirst.value;
     secondPlayer = inputSecond.value;
     console.log("Names added");
-     startGame();
+    startGame();
   });
 }
 
 async function startGame(): Promise<void> {
- 
-    // 1-X, 2-O
-    let currentPlayer = "X";
+  // 1-X, 2-O
+  let currentPlayer = "X";
 
-    let isUndoPossible = false;
-    //clearing main
-    main.innerHTML = "";
+  let isUndoPossible = false;
+  //clearing main
+  main.innerHTML = "";
 
-    //add board to main
-    main.innerHTML = board;
+  //add board to main
+  main.innerHTML = board;
 
-    const tiles = document.querySelectorAll(
-      ".tile"
-    ) as NodeListOf<HTMLButtonElement>;
-    const tilesArray = Array.from(tiles);
-    //Undo function
-    document.querySelector("#undo")?.addEventListener("click", () => {
-      if (isUndoPossible) {
-        lastTile.textContent = "";
-        lastTile.removeAttribute("disabled");
-        if (currentPlayer == "X") {
-          currentPlayer = "O";
-        } else {
-          currentPlayer = "X";
-        }
-        isUndoPossible = false;
+  const tiles = document.querySelectorAll(
+    ".tile"
+  ) as NodeListOf<HTMLButtonElement>;
+  const tilesArray = Array.from(tiles);
+  //Undo function
+  document.querySelector("#undo")?.addEventListener("click", () => {
+    if (isUndoPossible) {
+      lastTile.textContent = "";
+      lastTile.removeAttribute("disabled");
+      if (currentPlayer == "X") {
+        currentPlayer = "O";
+      } else {
+        currentPlayer = "X";
+      }
+      isUndoPossible = false;
+    }
+  });
+  tiles.forEach((tile) => {
+    //when clicked set to disabled
+    tile.addEventListener("click", () => {
+      if (currentPlayer == "X") {
+        tile.innerHTML = `<i class="bi bi-x-lg"></i>`;
+      } else {
+        tile.innerHTML = `<i class="bi bi-circle"></i>`;
+      }
+      isUndoPossible = true;
+      tile.setAttribute("disabled", "");
+      lastTile = tile;
+      //mark tile
+      tile.value = currentPlayer;
+      tile.setAttribute("class", currentPlayer);
+      //check if someone won
+      if (checkIfWin(tiles)) {
+        main.innerHTML = `<div class="win-msg">Congrats, you have won!</p>`;
+        restart();
+      }
+      //check if draw
+      if (tilesArray.every((button) => button.disabled)) {
+        main.innerHTML = `<div class="win-msg">Draw!</div>`;
+        restart();
+      }
+      //change move to next player
+      if (currentPlayer == "X") {
+        currentPlayer = "O";
+      } else {
+        currentPlayer = "X";
       }
     });
-    tiles.forEach((tile) => {
-      //when clicked set to disabled
-      tile.addEventListener("click", () => {
-        if (currentPlayer == "X") {
-          tile.innerHTML = `<i class="bi bi-x-lg"></i>`;
-        } else {
-          tile.innerHTML = `<i class="bi bi-circle"></i>`;
-        }
-        isUndoPossible = true;
-        tile.setAttribute("disabled", "");
-        lastTile = tile;
-        //mark tile
-        tile.value = currentPlayer;
-        tile.setAttribute("class", currentPlayer);
-        //check if someone won
-        if (checkIfWin(tiles)) {
-          main.innerHTML = `<div class="win-msg">Congrats, you have won!</p>`;
-          restart();
-        }
-        //check if draw
-        if (tilesArray.every((button) => button.disabled)) {
-          main.innerHTML = `<div class="win-msg">Draw!</div>`;
-          restart();
-        }
-        //change move to next player
-        if (currentPlayer == "X") {
-          currentPlayer = "O";
-        } else {
-          currentPlayer = "X";
-        }
-      });
-    });
-    
-  };
-
+  });
+}
 
 //add event listeners and start the game again
 function restart() {
-  main.innerHTML += `<button id="play-again" <i class="bi bi-fast-forward"></i></button>`
-  main.querySelector("#play-again")!.addEventListener("click",startGame);
+  main.innerHTML += `<button id="play-again" <i class="bi bi-fast-forward"></i></button>`;
+  main.querySelector("#play-again")!.addEventListener("click", startGame);
 }
 
 function checkIfWin(tiles: NodeListOf<HTMLButtonElement>): boolean {
